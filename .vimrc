@@ -21,6 +21,12 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'wincent/command-t'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'honza/vim-snippets'
+Plugin 'sirver/UltiSnips'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -99,3 +105,16 @@ let g:NERDCommentEmptyLines = 1
 
 " " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+
+set laststatus=2
+
+let g:airline_theme='luna'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsListSnippets="<c-tab>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
