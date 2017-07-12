@@ -27,6 +27,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'honza/vim-snippets'
 Plugin 'sirver/UltiSnips'
+Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -62,6 +63,8 @@ set shiftwidth=4
 set smartindent	
 set smarttab	
 set softtabstop=4
+set wildmenu
+set wildmode=full
  
 set confirm	
 set ruler
@@ -85,28 +88,15 @@ let g:syntastic_aggregate_errors = 1
 
 let g:mapleader = ","
 
-" Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
-
-" " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
-"
-" " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
-
-" " Set a language to use its alternate delimiters by default
 let g:NERDAltDelims_java = 1
-
-" " Add your own custom formats or override the defaults
 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-
-" " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
-
-" " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-set laststatus=2
+set laststatus=2 " allow airline theme
 
 let g:airline_theme='luna'
 
@@ -115,6 +105,12 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsListSnippets="<c-tab>"
-
-" If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+map <C-n> :NERDTreeToggle<CR>
+
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
