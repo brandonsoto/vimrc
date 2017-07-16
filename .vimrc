@@ -14,6 +14,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 "Plugin 'Valloric/YouCompleteMe' (this disables cpp syntax check)
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'tomasr/molokai'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdcommenter'
@@ -28,10 +29,13 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'honza/vim-snippets'
 Plugin 'sirver/UltiSnips'
 Plugin 'scrooloose/nerdtree'
+Plugin 'ntpeters/vim-better-whitespace'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+runtime macros/matchit.vim
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -45,30 +49,32 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 "----------------------------------------------------------------------------------------------------
 
+set mouse=n
+set hidden
 set number
-set linebreak	
+set linebreak
 set showbreak=+++
-set textwidth=100	
+set textwidth=100
 set showmatch
-set visualbell	
- 
+set visualbell
+
 set hlsearch
 set smartcase
-set ignorecase	
+set ignorecase
 set incsearch
- 
-set autoindent	
-set expandtab	
-set shiftwidth=4	
-set smartindent	
-set smarttab	
+
+set autoindent
+set expandtab
+set shiftwidth=4
+set smartindent
+set smarttab
 set softtabstop=4
 set wildmenu
 set wildmode=full
- 
-set confirm	
+
+set confirm
 set ruler
- 
+
 set undolevels=1000
 set backspace=indent,eol,start
 
@@ -87,6 +93,7 @@ let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_aggregate_errors = 1
 
 let g:mapleader = ","
+noremap \ ,
 
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
@@ -114,3 +121,17 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
+" get current directory
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+"" no one is really happy until you have this shortcuts
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
