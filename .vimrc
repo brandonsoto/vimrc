@@ -30,6 +30,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'sirver/UltiSnips'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'nelstrom/vim-visual-star-search'
 
 
 " All of your Plugins must be added before the following line
@@ -124,7 +125,7 @@ nnoremap <silent> ]B :blast<CR>
 " get current directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-"" no one is really happy until you have this shortcuts
+"" no one is really happy until you have these shortcuts
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
 cnoreabbrev Qall! qall!
