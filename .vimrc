@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'Valloric/YouCompleteMe' (this disables cpp syntax check)
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-abolish'
 Plugin 'tomasr/molokai'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdcommenter'
@@ -92,6 +93,11 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_aggregate_errors = 1
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_c_include_dirs = ['/usr/include','/usr/local/include','include']
+let g:syntastic_cpp_include_dirs = ['/usr/include','/usr/local/include','include']
+let g:syntastic_cpp_compiler_options = "-std=c++14 -ggdb -Wall -Wextra -Wpedantic"
+let g:syntastic_cpp_compiler = "g++"
 
 let g:mapleader = ","
 noremap \ ,
@@ -122,8 +128,12 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
+nnoremap <f5> :!ctags -R --exclude=.git --exclude=build<CR>
+
 " get current directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+autocmd BufWritePost * call system("ctags -R --exclude=.git --exclude=build")
 
 "" no one is really happy until you have these shortcuts
 cnoreabbrev W! w!
