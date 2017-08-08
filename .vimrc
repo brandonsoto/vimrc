@@ -32,7 +32,8 @@ Plugin 'sirver/UltiSnips'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'nelstrom/vim-visual-star-search'
-
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'peterhoeg/vim-qml'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -133,7 +134,7 @@ nnoremap <f5> :!ctags -R --exclude=.git --exclude=build<CR>
 " get current directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-autocmd BufWritePost * call system("ctags -R --exclude=.git --exclude=build")
+" autocmd BufWritePost * call system("ctags -R --exclude=.git --exclude=build") // TOO SLOW
 
 "" no one is really happy until you have these shortcuts
 cnoreabbrev W! w!
